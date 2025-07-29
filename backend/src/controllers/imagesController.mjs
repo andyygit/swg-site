@@ -1,5 +1,6 @@
 export const uploadImage = (req, res) => {
-  res.status(202).json({ message: 'image uploaded successfully' });
+  // res.status(202).json({ message: 'image uploaded successfully' });
+  res.status(202).json({ message: req.body });
 };
 
 export const deleteImage = (req, res) => {
