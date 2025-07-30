@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import envPath from './config.mjs';
+import { publicPath, envPath } from './config.mjs';
 import express from 'express';
 import usersRoutes from './routes/usersRoutes.mjs';
 import imagesRoutes from './routes/imagesRoutes.mjs';
@@ -9,6 +9,9 @@ dotenv.config({ path: envPath });
 const PORT = process.env.PORT;
 
 const app = express();
+
+// serve index
+app.use(express.static(publicPath));
 
 // parse incoming json body
 app.use(express.json());
