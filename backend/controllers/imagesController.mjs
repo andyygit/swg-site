@@ -1,4 +1,7 @@
 import multer from 'multer';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { publicPath } from '../config.mjs';
 
 // user!!!!!!!!!!!!!!!!!!!!!!!!
 const username = 'cinevaundeva';
@@ -40,7 +43,8 @@ export const uploadImage = (req, res, next) => {
   });
 };
 
-export const deleteImage = (req, res, next) => {
-  res.status(200).json({ message: 'image deleted successfully' });
-  console.log(req.params.id);
+export const deleteImage = async (req, res, next) => {
+  const result = await fs.rm(path.join(publicPath, `profiles/cinevaundeva-1753901680273-728167241.jpg`));
+  res.status(200).json({ message: result });
+  console.log(result);
 };
