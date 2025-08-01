@@ -2,10 +2,10 @@
   "name": "swg-site",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.mjs",
+  "main": "index.mjs",
   "scripts": {
-    "dev": "node --watch --trace-warnings src/index.mjs",
-    "prod": "node src/index.mjs"
+    "dev": "node --watch --trace-warnings index.mjs",
+    "prod": "node index.mjs"
   },
   "keywords": [],
   "author": "",
