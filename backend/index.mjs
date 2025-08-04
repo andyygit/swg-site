@@ -1,8 +1,10 @@
 import dotenv from 'dotenv';
-import { publicPath, envPath } from './config.mjs';
+import { publicPath, envPath } from './config/paths.mjs';
 import express from 'express';
 import usersRoutes from './routes/usersRoutes.mjs';
 import imagesRoutes from './routes/imagesRoutes.mjs';
+
+console.log(envPath);
 
 dotenv.config({ path: envPath });
 

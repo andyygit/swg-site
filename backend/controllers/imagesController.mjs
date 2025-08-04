@@ -2,7 +2,7 @@ import util from 'node:util';
 import multer from 'multer';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { publicPath } from '../config.mjs';
+import { publicPath } from '../config/paths.mjs';
 
 // user!!!!!!!!!!!!!!!!!!!!!!!!
 const username = 'cinevaundeva';
