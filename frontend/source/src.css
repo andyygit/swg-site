@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+a {
+  cursor: pointer;
+}
+
+svg {
+  @apply shrink-0;
+}

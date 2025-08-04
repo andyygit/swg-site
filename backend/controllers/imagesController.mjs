@@ -1,3 +1,4 @@
+import util from 'node:util';
 import multer from 'multer';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -27,24 +28,34 @@ const fileFilter = (req, file, cb) => {
 };
 
 // "file" name must be the name from key name in the client request payload
-const upload = multer({
+let upload = multer({
   storage: storage,
   fileFilter: fileFilter,
 }).single('file');
 
-export const uploadImage = (req, res, next) => {
-  upload(req, res, (err) => {
-    if (err instanceof multer.MulterError) {
-      return next({ status: 500, message: err.message });
-    } else if (err) {
-      return next({ status: 500, message: err.message });
-    }
-    res.status(202).json({ message: req.file });
-  });
+upload = util.promisify(upload);
+
+export const uploadImage = async (req, res, next) => {
+  try {
+    await upload(req, res, (err) => {
+      if (err instanceof multer.MulterError) {
+        return next({ status: 500, message: err.message });
+      } else if (err) {
+        return next({ status: 500, message: err.message });
+      }
+      res.status(202).json({ message: req.file });
+    });
+  } catch (err) {
+    res.status(500).json({ message: `Nu s-a putut incarca fisierul: ${err}` });
+  }
 };
 
 export const deleteImage = async (req, res, next) => {
-  const result = await fs.rm(path.join(publicPath, `profiles/cinevaundeva-1753901680273-728167241.jpg`));
-  res.status(200).json({ message: result });
-  console.log(result);
+  try {
+    await fs.rm(path.join(publicPath, `profiles/cinevaundeva-1753901680273-728167241.jpg`));
+    res.status(200).json({ message: 'Fisierul a fost sters.' });
+  } catch (err) {
+    res.status(500).json({ message: 'Eroare la stergerea fisierului.' });
+    console.log(err);
+  }
 };

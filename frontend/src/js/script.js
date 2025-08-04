@@ -6,7 +6,7 @@ const form = document.getElementById('my-form');
 const output = document.getElementById('output');
 const MAX_WIDTH = 960;
 const MAX_HEIGHT = 800;
-const uploadUrl = 'http://localhost:3000/images/upload';
+const uploadUrl = '/images/upload';
 
 // helper functions
 /**
@@ -32,17 +32,23 @@ const urlToFile = (url) => {
   return file;
 };
 
-const uploadImage = (file) => {
+const uploadImage = async (file) => {
   let payload = new FormData();
   payload.append('file', file);
-  fetch(uploadUrl, {
-    method: 'POST',
-    body: payload,
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
+  try {
+    const res = await fetch(uploadUrl, {
+      method: 'POST',
+      body: payload,
     });
+    if (!res.ok) {
+      throw new Error(`API response error code: ${res.status}`);
+    }
+    const json = await res.json();
+    console.log(json);
+  } catch (err) {
+    console.error(err.message);
+    form.outerHTML = `<div>${err.message}</div>`;
+  }
 };
 
 // event listeners
@@ -61,7 +67,7 @@ upload.addEventListener('change', (event) => {
 
     let img = new Image();
     img.src = imageUrl;
-    img.onload = (event) => {
+    img.onload = async (event) => {
       const canvas = document.createElement('canvas');
       if (event.target.width > event.target.height) {
         const ratio = MAX_WIDTH / event.target.width;
@@ -85,8 +91,10 @@ upload.addEventListener('change', (event) => {
       // output.appendChild(newImg);
 
       let imageFile = urlToFile(newImageUrl);
-      uploadImage(imageFile);
+      await uploadImage(imageFile);
       // console.log(imageFile);
+      form.reset();
+      form.outerHTML = `<div>Imaginea a fost incarcata</div>`;
     };
   };
   reader.readAsDataURL(imageFile);

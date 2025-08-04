@@ -29,3 +29,9 @@ fetch changes from remote branch (online): git remote update -> git status -> gi
 reset local branch to remote: git pull origin -> git reset --hard origin/main
 
 delete untracked files from working tree (force, recursive): git clean -f -d
+
+# fontend - tailwind
+
+When building page and removing items from the page, tailwindcss does not recompile the css and the file keeps growing containing unused styles
+
+> Therefore when html is ready, before last build delete the compiled css (dist.css) to be rebuilt
