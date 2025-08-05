@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 import { publicPath, envPath } from './config/paths.mjs';
 import express from 'express';
-import usersRoutes from './routes/usersRoutes.mjs';
-import imagesRoutes from './routes/imagesRoutes.mjs';
+import myProfileRoutes from './routes/myProfileRoutes.mjs';
+import profilesRoutes from './routes/profilesRoutes.mjs';
 
 console.log(envPath);
 
@@ -13,7 +13,7 @@ const PORT = process.env.PORT;
 const app = express();
 
 // serve index
-app.use(express.static(publicPath));
+// app.use(express.static(publicPath));
 
 // parse incoming json body
 app.use(express.json());
@@ -25,8 +25,8 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use('/users', usersRoutes);
-app.use('/images', imagesRoutes);
+app.use('/profiles', profilesRoutes);
+app.use('/my-profile', myProfileRoutes);
 
 // redirects
 app.use((req, res) => {

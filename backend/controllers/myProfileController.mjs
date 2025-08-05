@@ -59,3 +59,19 @@ export const deleteImage = async (req, res, next) => {
     console.log(err);
   }
 };
+
+/**
+ * @todo below 3 methods
+ */
+
+export const viewMyProfile = (req, res) => {
+  res.status(200).json({ message: 'My profile page' });
+};
+
+export const editMyProfile = (req, res) => {
+  res.status(200).json({ message: 'Edit my profile page' });
+};
+
+export const updateMyProfile = (req, res) => {
+  res.status(200).json({ message: 'Profil actualizat cu succes!' });
+};

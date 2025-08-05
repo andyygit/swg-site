@@ -6,7 +6,7 @@ const form = document.getElementById('my-form');
 const output = document.getElementById('output');
 const MAX_WIDTH = 960;
 const MAX_HEIGHT = 800;
-const uploadUrl = '/images/upload';
+const uploadUrl = '/my-profile/upload';
 
 // helper functions
 /**
