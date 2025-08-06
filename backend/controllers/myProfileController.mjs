@@ -52,7 +52,9 @@ export const uploadImage = async (req, res, next) => {
 
 export const deleteImage = async (req, res, next) => {
   try {
-    await fs.rm(path.join(publicPath, `profiles/cinevaundeva-1754458626844-36642806.jpg`));
+    await fs.rm(
+      path.join(publicPath, `profiles/cinevaundeva-1754458626844-36642806.jpg`)
+    );
     res.status(200).json({ message: 'Fisierul a fost sters.' });
   } catch (err) {
     res.status(500).json({ message: 'Eroare la stergerea fisierului.' });
@@ -61,7 +63,7 @@ export const deleteImage = async (req, res, next) => {
 };
 
 /**
- * @todo below 3 methods
+ * @todo below 3 methods - async functions?
  */
 
 export const viewMyProfile = (req, res) => {
