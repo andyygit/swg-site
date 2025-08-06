@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import { publicPath, envPath } from './config/paths.mjs';
 import express from 'express';
+import authRtoutes from './routes/authRoutes.mjs';
 import myProfileRoutes from './routes/myProfileRoutes.mjs';
 import profilesRoutes from './routes/profilesRoutes.mjs';
 
@@ -25,8 +26,22 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use('/profiles', profilesRoutes);
+app.use('/auth', authRtoutes);
 app.use('/my-profile', myProfileRoutes);
+app.use('/profiles', profilesRoutes);
+
+/**
+ * @todo
+ */
+// app.use('/search', searchRoutes); // quicksearch, usersearch, advancedsearch
+// app.use('/favourites', favouritesRoutes); // useri favoriti                                --move to /profiles route & controller
+// app.use('/online', onlineRoutes); // useri online                                          --move to /profiles route & controller
+// app.use('/inbox', inboxRoutes); // mesaje, view messages, read message, reply              --move send message + add to favorites to /profiles
+// app.use('/friends', friendsRoutes);
+// app.use('/premium', premiumRoutes);
+/**
+ * @end_todo
+ */
 
 // redirects
 app.use((req, res) => {

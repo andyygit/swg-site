@@ -1,5 +1,5 @@
-export const getAllProfiles = (req, res) => {
-  res.status(200).json({ message: 'get all users page' });
+export const getRandomProfiles = (req, res) => {
+  res.status(200).json({ message: 'get random 20 users on home page' });
 };
 
 export const getProfile = (req, res) => {
