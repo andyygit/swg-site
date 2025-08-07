@@ -7,21 +7,17 @@ export const verifyToken = async (req, res, next) => {
     token = authHeader.split(' ')[1];
 
     if (!token) {
-      return res
-        .status(401)
-        .json({ message: 'Probleme token, authorization denied!' });
+      return res.status(401).json({ message: 'Probleme token, authorization denied!' });
     }
     jwt.verify(token, process.env.ACCESS_TOKEN_SALT, (err, decoded) => {
       if (err) {
         return res.status(400).json(err);
       }
+      // console.log(decoded.role);
       res.user = decoded;
-      console.log(`The decoded user is ${req.user}`);
       next();
     });
   } else {
-    return res
-      .status(401)
-      .json({ message: 'Probleme tk, lipsa header autorizare!' });
+    return res.status(401).json({ message: 'Probleme tk, lipsa header autorizare!' });
   }
 };
