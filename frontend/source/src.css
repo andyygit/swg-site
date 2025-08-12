@@ -8,10 +8,12 @@
   --breakpoint-2xl: 1536px;
 }
 
-a {
-  cursor: pointer;
-}
-
-svg {
-  @apply shrink-0;
+@layer base {
+  svg {
+    flex-shrink: 0;
+  }
+  a,
+  button {
+    cursor: pointer;
+  }
 }

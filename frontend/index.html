@@ -13,80 +13,73 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="src/css/dist.css" />
-    <!-- <script src="src/js/script.js" defer></script> -->
+    <script src="src/js/script.js" defer></script>
   </head>
   <body
     class="flex items-center h-screen justify-center bg-gradient-to-r from-[#F28383] from-10% via-[#9D6CD2] via-30% to-[#481EDC] to-90%"
   >
-    <div
-      class="grid grid-cols-2 gap-20 max-w-[960px] items-center p-5 bg-black/50 rounded-2xl"
-    >
-      <div class="relative">
-        <img src="src/img/signup-background.svg" alt="" />
-        <img src="src/img/teamwork.svg" alt="" class="absolute top-36" />
-      </div>
-      <div class="max-w-80 grid gap-5">
-        <h1 class="text-5xl font-bold text-white">Login</h1>
-        <p class="text-white/70">
-          Access to 300+ hours of courses, tutorials and livestreams
-        </p>
-        <form action="" class="space-y-6 text-white">
-          <div class="relative">
-            <div
-              class="absolute top-1 left-1 bg-white/25 rounded-full p-2 flex items-center justify-center text-blue-300"
-            >
-              <i class="fa-solid fa-user"></i>
+    <template id="my-template">
+      <div id="login-form" class="mx-4 p-8 bg-black/50 rounded-2xl shadow-xl/30">
+        <div class="grid gap-5">
+          <h1 class="text-[40px] font-bold text-white">Login</h1>
+          <p class="text-white/70">Access to 300+ hours of courses, tutorials and livestreams</p>
+          <form action="" class="space-y-5 text-white">
+            <div class="relative">
+              <div
+                class="absolute top-1 left-1 bg-white/25 rounded-full p-2 flex items-center justify-center text-blue-300"
+              >
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <input
+                type="text"
+                placeholder="Utilizator"
+                class="w-full sm:w-80 bg-gradient-to-b from-[#636a9666] to-[#b6bad640] py-2 px-3 pl-12 rounded-full ring-1 ring-white/20 focus:bg-black/50 focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in"
+              />
             </div>
-            <input
-              type="text"
-              placeholder="Username"
-              class="w-80 bg-white/20 py-2 px-3 pl-12 rounded-full focus:bg-black/50 focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg"
-            />
-          </div>
-          <div class="relative">
-            <div
-              class="absolute top-1 left-1 bg-white/25 rounded-full p-2 flex items-center justify-center text-blue-300"
-            >
-              <i class="fa-solid fa-lock"></i>
+            <div class="relative">
+              <div
+                class="absolute top-1 left-1 bg-white/25 rounded-full p-2 flex items-center justify-center text-blue-300"
+              >
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <input
+                type="password"
+                placeholder="Parola"
+                class="w-full sm:w-80 bg-gradient-to-b from-[#636a9666] to-[#b6bad640] py-2 px-3 pl-12 rounded-full ring-1 ring-white/20 focus:bg-black/50 focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in"
+              />
             </div>
-            <input
-              type="password"
-              placeholder="Password"
-              class="w-80 bg-white/20 py-2 px-3 pl-12 rounded-full focus:bg-black/50 focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg"
-            />
+            <button
+              class="w-full sm:w-80 font-semibold rounded-full bg-gradient-to-r from-blue-400 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102"
+            >
+              Autentificare
+            </button>
+          </form>
+          <div class="grid grid-cols-3 items-center text-white/20">
+            <hr />
+            <p class="text-sm text-center">SAU</p>
+            <hr />
           </div>
-          <button
-            class="w-80 font-semibold rounded-full bg-gradient-to-r from-blue-400 to-cyan-200 py-2 cursor-pointer"
-          >
-            Sign in
-          </button>
-        </form>
-        <div class="mt-2 grid grid-cols-3 items-center text-white/20">
-          <hr />
-          <p class="text-sm text-center">OR</p>
-          <hr />
-        </div>
-        <div class="text-white/70 space-y-2 text-sm">
-          <p>
-            Don't have an account?
-            <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer"
-              >Sign up</a
-            >
-          </p>
-          <p>
-            Forgot password?
-            <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer"
-              >Reset password</a
-            >
-          </p>
-          <p>
-            Don't have an account yet?
-            <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer"
-              >Register</a
-            >
-          </p>
+          <div class="text-white/70 space-y-1 text-sm">
+            <p>
+              Ai uitat parola?
+              <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer">Seteaza o noua parola</a>
+            </p>
+            <p>
+              Nu ai cont?
+              <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer">Inscrie-te</a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
+    <div class="text-white">div</div>
+    <!-- <script>
+      const template = document.getElementById('my-template');
+      document.addEventListener('DOMContentLoaded', () => {
+        const loginFormSource = template.content.getElementById('login-form');
+        const loginForm = document.importNode(loginFormSource, true);
+        document.body.appendChild(loginForm);
+      });
+    </script> -->
   </body>
 </html>
