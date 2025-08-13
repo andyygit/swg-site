@@ -13,7 +13,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="src/css/dist.css" />
-    <script src="src/js/main.js" defer></script>
+    <script src="src/js/uploadimage.js" defer></script>
   </head>
   <!-- <body
     class="flex items-center h-screen justify-center bg-gradient-to-r from-[#F28383] from-10% via-[#9D6CD2] via-30% to-[#481EDC] to-90%"
@@ -74,8 +74,11 @@
       </div>
     </template>
     <div class="flex flex-col gap-10">
-      <div>homepage</div>
-      <a href="my-profile.html" class="underline">my-profile page</a>
+      <div>my-profile</div>
+      <form action="" id="my-form">
+        <input type="file" name="uploadimage" id="upload" />
+      </form>
+      <a href="index.html" class="underline">home page</a>
     </div>
     <!-- <script>
       const template = document.getElementById('my-template');

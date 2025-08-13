@@ -3,10 +3,11 @@ const upload = document.getElementById('upload');
  * @type {HTMLFormElement}
  */
 const form = document.getElementById('my-form');
-const output = document.getElementById('output');
+// const output = document.getElementById('output');
 const MAX_WIDTH = 960;
 const MAX_HEIGHT = 800;
-const uploadUrl = '/my-profile/upload';
+const uploadUrl = 'http://localhost:3000/my-profile/upload';
+// const uploadUrl = '/api/my-profile/upload'; // this will be proxied in nginx: (location /api/ {proxy_pass "http://localhost:3000"}) or maybe 8080 in prod
 
 // helper functions
 /**
