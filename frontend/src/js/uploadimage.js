@@ -1,4 +1,4 @@
-const upload = document.getElementById('upload');
+const upload = document.getElementById('uploadimage');
 /**
  * @type {HTMLFormElement}
  */
@@ -46,8 +46,11 @@ const uploadImage = async (file) => {
     }
     const json = await res.json();
     console.log(json);
+    form.reset();
+    form.outerHTML = `<div>Imaginea a fost incarcata</div>`;
   } catch (err) {
     console.error(err.message);
+    form.reset();
     form.outerHTML = `<div>${err.message}</div>`;
   }
 };
@@ -94,8 +97,6 @@ upload.addEventListener('change', (event) => {
       let imageFile = urlToFile(newImageUrl);
       await uploadImage(imageFile);
       // console.log(imageFile);
-      form.reset();
-      form.outerHTML = `<div>Imaginea a fost incarcata</div>`;
     };
   };
   reader.readAsDataURL(imageFile);

@@ -20,10 +20,15 @@
   > -->
   <body class="flex items-center justify-center h-screen">
     <template id="my-template">
-      <div id="login-form" class="mx-4 p-8 bg-black/50 rounded-2xl shadow-xl/30">
+      <div
+        id="login-form"
+        class="mx-4 p-8 bg-black/50 rounded-2xl shadow-xl/30"
+      >
         <div class="grid gap-5">
           <h1 class="text-[40px] font-bold text-white">Login</h1>
-          <p class="text-white/70">Access to 300+ hours of courses, tutorials and livestreams</p>
+          <p class="text-white/70">
+            Access to 300+ hours of courses, tutorials and livestreams
+          </p>
           <form action="" class="space-y-5 text-white">
             <div class="relative">
               <div
@@ -63,11 +68,15 @@
           <div class="text-white/70 space-y-1 text-sm">
             <p>
               Ai uitat parola?
-              <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer">Seteaza o noua parola</a>
+              <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer"
+                >Seteaza o noua parola</a
+              >
             </p>
             <p>
               Nu ai cont?
-              <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer">Inscrie-te</a>
+              <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer"
+                >Inscrie-te</a
+              >
             </p>
           </div>
         </div>
@@ -76,7 +85,16 @@
     <div class="flex flex-col gap-10">
       <div>my-profile</div>
       <form action="" id="my-form">
-        <input type="file" name="uploadimage" id="upload" />
+        <label
+          for="uploadimage"
+          class="flex items-center space-x-8 bg-gray-500 pl-5 pr-3 py-2 rounded-full cursor-pointer"
+        >
+          <div class="text-white/85">Incarca o poza</div>
+          <div class="bg-white/35 text-white rounded-full px-2 py-1.5">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+        </label>
+        <input type="file" name="uploadimage" id="uploadimage" class="hidden" />
       </form>
       <a href="index.html" class="underline">home page</a>
     </div>
