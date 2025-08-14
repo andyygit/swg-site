@@ -1,3 +1,6 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { publicPath } from '../config/paths.mjs';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
@@ -12,11 +15,13 @@ export const register = async (req, res) => {
    */
   try {
     const { username, password, role } = req.body;
+    await fs.mkdir(path.join(publicPath, `profiles/${username}/public`), { recursive: true });
+    await fs.mkdir(path.join(publicPath, `profiles/${username}/private`));
     res.status(201).json({
       message: `User inregistrat cu username ${username} si rol ${role}`,
     });
   } catch (err) {
-    res.status(500).json({ message: 'Eroare la inregistrarea userului' });
+    res.status(500).json({ message: `Eroare la inregistrarea userului - ${err}` });
   }
 };
 

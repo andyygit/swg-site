@@ -4,17 +4,15 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { publicPath } from '../config/paths.mjs';
 
-// user!!!!!!!!!!!!!!!!!!!!!!!!
-const username = 'cinevaundeva';
-
 // Configure storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/profiles');
+    const username = 'useruvietii';
+    cb(null, `public/profiles/${username}/private`);
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    cb(null, `${username}-${uniqueSuffix}.jpg`);
+    cb(null, `${uniqueSuffix}.jpg`);
   },
 });
 
