@@ -41,7 +41,13 @@
           <kbd class="font-sans text-xs/4 text-gray-500">Cautare</kbd>
         </button>
         <a class="text-sm/6 text-gray-950" href="/my-profile">Profil</a>
-        <a class="text-sm/6 text-gray-950" href="/inbox">Mesaje</a>
+        <a class="flex items-center gap-1 text-sm/6 text-gray-950" href="/inbox">
+          <span class="relative flex size-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+            <span class="relative inline-flex size-2 rounded-full bg-sky-500"></span>
+          </span>
+          <span>Mesaje</span>
+        </a>
         <a class="text-sm/6 text-gray-950" href="/favorites">Favoriti</a>
         <a class="text-sm/6 text-gray-950" href="/premium">Premium</a>
         <a href="/" class="group relative px-1.5 text-sm/6 text-indigo-800"><span
@@ -67,6 +73,10 @@
         <button type="button" aria-label="User" class="inline-grid size-6 place-items-center rounded-md">
           <i class="fa-solid fa-user"></i>
         </button>
+        <button type="button" aria-label="Inbox" class="relative inline-grid size-6 place-items-center rounded-md">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="absolute top-0 -right-0.5 inline-flex size-2.5 rounded-full bg-sky-500"></span>
+        </button>
         <button type="button"
           class="inline-grid size-6 place-items-center rounded-md text-gray-950 hover:bg-gray-950/5 dark:text-white dark:hover:bg-white/10 undefined"
           aria-label="Navigation">
@@ -90,7 +100,11 @@
   </div>
   <div
     class="grid min-h-dvh grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] pt-26.25 lg:grid-cols-[auto_2.5rem_minmax(0,1fr)_2.5rem] lg:pt-14.25 xl:grid-cols-[auto_2.5rem_minmax(0,1fr)_2.5rem]">
-    <div class="relative col-start-1 row-span-full row-start-1 max-lg:hidden">sidebar</div>
+    <div class="relative col-start-1 row-span-full row-start-1 max-lg:hidden">
+      <div
+        class="sticky top-14.25 bottom-0 left-0 h-full max-h-[calc(100dvh-(var(--spacing)*14.25))] overflow-y-auto p-4 space-y-2">
+        sidebar</div>
+    </div>
     <div
       class="row-start-1 col-start-2 row-span-3 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden">
     </div>
@@ -114,6 +128,7 @@
                 incidunt
                 reprehenderit!</p>
             </div>
+            <div class="flex items-center justify-center size-10 rounded-full shadow-md">da</div>
           </div>
         </div>
         <div class="sm:rounded-lg sm:overflow-hidden shadow-md">
@@ -277,7 +292,8 @@
           </div>
         </div>
       </div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. In a hic debitis non qui modi voluptatibus quas odio
+      <div class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In a hic debitis non qui modi
+        voluptatibus quas odio
         ab nam quia, asperiores reprehenderit quibusdam omnis? Quia deleniti similique nisi consequuntur illum atque
         veniam sint, ullam quidem, sunt quae illo quis error asperiores, a suscipit veritatis aliquid. In consectetur
         ducimus, natus sed soluta veritatis similique sint sit aliquam laboriosam cupiditate harum, et placeat
@@ -286,7 +302,8 @@
         harum. Doloribus vitae neque quos ex velit minima deserunt eos consequuntur corporis voluptate debitis quo
         exercitationem reiciendis, recusandae placeat libero quia ipsam quas nesciunt? Iste blanditiis dolorem saepe.
       </div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. In a hic debitis non qui modi voluptatibus quas odio
+      <div class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In a hic debitis non qui modi
+        voluptatibus quas odio
         ab nam quia, asperiores reprehenderit quibusdam omnis? Quia deleniti similique nisi consequuntur illum atque
         veniam sint, ullam quidem, sunt quae illo quis error asperiores, a suscipit veritatis aliquid. In consectetur
         ducimus, natus sed soluta veritatis similique sint sit aliquam laboriosam cupiditate harum, et placeat
@@ -295,7 +312,8 @@
         harum. Doloribus vitae neque quos ex velit minima deserunt eos consequuntur corporis voluptate debitis quo
         exercitationem reiciendis, recusandae placeat libero quia ipsam quas nesciunt? Iste blanditiis dolorem saepe.
       </div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. In a hic debitis non qui modi voluptatibus quas odio
+      <div class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In a hic debitis non qui modi
+        voluptatibus quas odio
         ab nam quia, asperiores reprehenderit quibusdam omnis? Quia deleniti similique nisi consequuntur illum atque
         veniam sint, ullam quidem, sunt quae illo quis error asperiores, a suscipit veritatis aliquid. In consectetur
         ducimus, natus sed soluta veritatis similique sint sit aliquam laboriosam cupiditate harum, et placeat
@@ -304,7 +322,8 @@
         harum. Doloribus vitae neque quos ex velit minima deserunt eos consequuntur corporis voluptate debitis quo
         exercitationem reiciendis, recusandae placeat libero quia ipsam quas nesciunt? Iste blanditiis dolorem saepe.
       </div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. In a hic debitis non qui modi voluptatibus quas odio
+      <div class="p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. In a hic debitis non qui modi
+        voluptatibus quas odio
         ab nam quia, asperiores reprehenderit quibusdam omnis? Quia deleniti similique nisi consequuntur illum atque
         veniam sint, ullam quidem, sunt quae illo quis error asperiores, a suscipit veritatis aliquid. In consectetur
         ducimus, natus sed soluta veritatis similique sint sit aliquam laboriosam cupiditate harum, et placeat
