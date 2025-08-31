@@ -30,3 +30,12 @@ gen salt: node: require('crypto').randomBytes(32).toString('hex')
 When building page and removing items from the page, tailwindcss does not recompile the css and the file keeps growing containing unused styles
 
 > Therefore when html is ready, before last build delete the compiled css (dist.css) to be rebuilt
+
+## liveserver server fronend
+
+> "liveServer.settings.root": "/frontend"
+
+## nginx
+
+> must serve only index page, and redirect all path requests "/\*" to index page
+> in the meantime must allow all api calls to proxy pass them

@@ -1,22 +1,70 @@
-const getData = async (url) => {
-  try {
-    const res = await fetch(url);
-    if (!res.ok) {
-      throw new Error(`Fetch response NOK: ${res.status}`);
-    }
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+import homeView from './views/Home.js';
+import loginView from './views/Login.js';
 
-const fetchAndRenderData = async () => {
-  const data = await getData('https://jsonplaceholder.typicode.com/users');
-  data.forEach((item) => {
-    let { name, email } = item;
-    console.log(`${name} - ${email}`);
+const router = async () => {
+  const routes = [
+    {
+      path: '/',
+      view: homeView,
+    },
+    {
+      path: '/login',
+      view: loginView,
+    },
+  ];
+  const potentialMatches = routes.map((route) => {
+    return {
+      route: route,
+      isMatch: location.pathname === route.path,
+    };
   });
+  let match = potentialMatches.find((potentialMatch) => potentialMatch.isMatch);
+  if (!match) {
+    match = {
+      route: routes[0],
+      isMatch: true,
+    };
+  }
+
+  const view = new match.route.view();
+  document.querySelector('#app').innerHTML = await view.getHtml();
 };
 
-// fetchAndRenderData();
+const navigateTo = (url) => {
+  history.pushState(null, null, url);
+  router();
+};
+
+addEventListener('popstate', router);
+addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', (e) => {
+    if (e.target.matches('[data-link]')) {
+      e.preventDefault();
+      navigateTo(e.target.href);
+    }
+  });
+  router();
+});
+
+// /**Fetch utility functions */
+
+// const getData = async (url) => {
+//   try {
+//     const res = await fetch(url);
+//     if (!res.ok) {
+//       throw new Error(`Fetch response NOK: ${res.status}`);
+//     }
+//     const data = await res.json();
+//     return data;
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// };
+
+// const fetchAndRenderData = async () => {
+//   const data = await getData('https://jsonplaceholder.typicode.com/users');
+//   data.forEach((item) => {
+//     let { name, email } = item;
+//     console.log(`${name} - ${email}`);
+//   });
+// };
