@@ -19,7 +19,8 @@ const app = express();
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 15 minutes -> 1
   max: 15, // limit each IP to 100 requests per windowMs, -> 15
-  message: 'Poti face maxim 15 apeluri per minut. Incearca din nou intr-un minut.',
+  message:
+    'Poti face maxim 15 apeluri per minut. Incearca din nou intr-un minut.',
 });
 app.use(limiter);
 
@@ -55,13 +56,16 @@ app.use('/profiles', profilesRoutes);
 
 // redirects
 app.use((req, res) => {
-  res.status(404).send('<h3>404 Not found!</h3>');
+  res.status(404).json({ message: '404 Not found!' });
 });
 
 // errors
 app.use((err, req, res, next) => {
   const status = err.status || 500;
-  const message = process.env.NODE_ENV === 'production' ? 'Internal Server Error' : err.message;
+  const message =
+    process.env.NODE_ENV === 'production'
+      ? 'Internal Server Error'
+      : err.message;
 
   res.status(status).json({
     error: {

@@ -1,3 +1,4 @@
+import { postData } from '../helpers/fetch.js';
 import AbstractView from './AbstractView.js';
 
 export default class extends AbstractView {
@@ -6,6 +7,11 @@ export default class extends AbstractView {
     this.setTitle('SWGSite | Intra in cont');
   }
   async getHtml() {
-    return `<h1>Pagina de log in</h1>`;
+    const postBody = {
+      username: 'useruietii',
+      password: 1234567,
+    };
+    const data = await postData('http://localhost:3000/auth/login', postBody);
+    return data.token;
   }
 }

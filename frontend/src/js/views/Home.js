@@ -1,4 +1,5 @@
 import AbstractView from './AbstractView.js';
+import { getData } from '../helpers/fetch.js';
 
 export default class extends AbstractView {
   constructor() {
@@ -6,9 +7,13 @@ export default class extends AbstractView {
     this.setTitle('SWGSite | Acasa');
   }
   async getHtml() {
-    return `
-    <h1>Pagina principala</h1>
-    <p>Nu ai cont? <a href='/register' class='underline' data-link>Inregistreaza-te!</a></p>
-    `;
+    const data = await getData('http://localhost:3000/profiles/da');
+    return data.message;
   }
+  // async getHtml() {
+  //   const data = await getData('https://jsonplaceholder.typicode.com/users');
+  //   return data.reduce((acc, cur, index) => {
+  //     return index === 0 ? `<p>${cur.email}</p>` : acc + `<p>${cur.email}</p>`;
+  //   }, 0);
+  // }
 }
