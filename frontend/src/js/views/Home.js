@@ -7,7 +7,7 @@ export default class extends AbstractView {
     this.setTitle('SWGSite | Acasa');
   }
   async getHtml() {
-    const data = await getData('http://localhost:3000/profiles/da');
+    const data = await getData('http://localhost:3000/profiles');
     return data.message;
   }
   // async getHtml() {

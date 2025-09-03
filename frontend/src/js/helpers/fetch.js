@@ -2,7 +2,12 @@ const getData = async (url) => {
   try {
     const res = await fetch(url);
     if (!res.ok) {
-      throw new Error(`Fetch response NOK: ${res.status}`);
+      // throw new Error(`Fetch response NOK: ${res.status}`);
+      return {
+        message: `Intra in cont pentru a vizualiza aceasta pagina: Error: ${
+          res.status + ' ' + res.statusText
+        }`,
+      };
     }
     const data = await res.json();
     return data;

@@ -1,5 +1,6 @@
 import { postData } from '../helpers/fetch.js';
 import AbstractView from './AbstractView.js';
+import MyLoginForm from '../components/Loginform.js';
 
 export default class extends AbstractView {
   constructor() {
@@ -7,11 +8,9 @@ export default class extends AbstractView {
     this.setTitle('SWGSite | Intra in cont');
   }
   async getHtml() {
-    const postBody = {
-      username: 'useruietii',
-      password: 1234567,
-    };
-    const data = await postData('http://localhost:3000/auth/login', postBody);
-    return data.token;
+    if (!customElements.get('my-loginform')) {
+      customElements.define('my-loginform', MyLoginForm);
+    }
+    return '<my-loginform>';
   }
 }
