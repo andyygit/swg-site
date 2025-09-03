@@ -13,7 +13,28 @@ dotenv.config({ path: envPath });
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
+/**
+ *
+ *
+ * TEMP CORS
+ *
+ *
+ */
 const app = express();
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', '*');
+  res.append('Access-Control-Allow-Methods', '*');
+  res.append('Access-Control-Allow-Headers', '*');
+  res.append('Access-Control-Allow-Credentials', '*');
+  next();
+});
+/**
+ *
+ *
+ * END TEMP CORS
+ *
+ *
+ */
 
 // rate limiting
 const limiter = rateLimit({

@@ -1,19 +1,20 @@
+import { postData } from '../helpers/fetch.js';
+import Store from '../helpers/Store.js';
+
 class MyLoginForm extends HTMLElement {
   constructor() {
     super();
   }
-  #handleClick(event) {
+  async #handleClick(event) {
     event.preventDefault();
-    event.stopPropagation();
     let username = this.querySelector('#username').value;
     let password = this.querySelector('#password').value;
-    let ce = new CustomEvent('postlogin', {
-      detail: {
-        username,
-        password,
-      },
+    const response = await postData('http://localhost:3000/auth/login', {
+      username: username,
+      password: password,
     });
-    this.dispatchEvent(ce);
+    Store.addData('session', response);
+    console.log(Store.getData('session'));
   }
   connectedCallback() {
     this.innerHTML = `

@@ -2,11 +2,9 @@ const getData = async (url) => {
   try {
     const res = await fetch(url);
     if (!res.ok) {
-      // throw new Error(`Fetch response NOK: ${res.status}`);
+      const err = await res.json();
       return {
-        message: `Intra in cont pentru a vizualiza aceasta pagina: Error: ${
-          res.status + ' ' + res.statusText
-        }`,
+        message: `${err.message}. Error: ${res.status + ' ' + res.statusText}`,
       };
     }
     const data = await res.json();
@@ -27,7 +25,10 @@ const postData = async (url, body) => {
       body: JSON.stringify(body),
     });
     if (!res.ok) {
-      throw new Error(`Fetch response NOK: ${res.status}`);
+      const err = await res.json();
+      return {
+        message: `${err.message}. Error: ${res.status + ' ' + res.statusText}`,
+      };
     }
     const data = await res.json();
     return data;
