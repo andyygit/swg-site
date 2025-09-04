@@ -1,5 +1,6 @@
 import homeView from './views/Home.js';
 import loginView from './views/Login.js';
+import registerView from './views/Register.js';
 
 const router = async () => {
   const routes = [
@@ -10,6 +11,10 @@ const router = async () => {
     {
       path: '/login',
       view: loginView,
+    },
+    {
+      path: '/register',
+      view: registerView,
     },
   ];
   const potentialMatches = routes.map((route) => {

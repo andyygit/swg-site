@@ -15,13 +15,13 @@ class MyLoginForm extends HTMLElement {
     });
     Store.addData('session', response);
     this.children[0].style.display = 'none';
-    this.innerHTML += `<p>Succes! Poti continua catre <a href="/" class="underline" data-link>Prima pagina</a></p>`;
+    this.innerHTML += `<p>Succes! Poti continua catre <a href="/" class="underline" data-link="">Prima pagina</a></p>`;
   }
   connectedCallback() {
     this.innerHTML = `
 		<div id="login-form" class="mx-4 p-8 rounded-2xl inset-ring inset-ring-gray-200 shadow-xl/30">
     <div class="grid gap-5">
-      <h1 class="text-[40px] font-bold tracking-tighter text-gray-600">Intră în cont</h1>
+      <h1 class="text-[40px] font-bold text-gray-600">Intră în cont</h1>
       <p class="text-black/70">Acces la comunitatea online a cuplurilor swinger din România și nu numai...</p>
       <form action="" class="space-y-5">
         <div class="relative">
@@ -48,11 +48,11 @@ class MyLoginForm extends HTMLElement {
       <div class="text-gray-600 space-y-1 text-sm">
         <p>
           Ai uitat parola?
-          <a href="/resetpassword" class="text-[#2FB8FF] font-semibold cursor-pointer" data-link>Setează o nouă parolă</a>
+          <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer">Setează o nouă parolă</a>
         </p>
         <p>
           Nu ai cont?
-          <a href="/register" class="text-[#2FB8FF] font-semibold cursor-pointer" data-link>Înscrie-te</a>
+          <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer">Înscrie-te</a>
         </p>
       </div>
     </div>

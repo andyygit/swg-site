@@ -5,7 +5,7 @@ import { getData } from '../helpers/fetch.js';
 export default class extends AbstractView {
   constructor() {
     super();
-    this.setTitle('SWGSite | Acasa');
+    this.setTitle('SWGSite | Pagina principală');
   }
   async getHtml() {
     const token = Store.getData('session').token;
