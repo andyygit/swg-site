@@ -1,7 +1,10 @@
 export default class Store {
   static getData(key) {
     let data;
-    if (localStorage.getItem(key) === null) {
+    if (
+      localStorage.getItem(key) === null ||
+      localStorage.getItem(key) === 'undefined'
+    ) {
       return false;
     } else {
       data = JSON.parse(localStorage.getItem(key));

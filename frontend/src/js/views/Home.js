@@ -1,3 +1,4 @@
+import Store from '../helpers/Store.js';
 import AbstractView from './AbstractView.js';
 import { getData } from '../helpers/fetch.js';
 
@@ -7,7 +8,8 @@ export default class extends AbstractView {
     this.setTitle('SWGSite | Acasa');
   }
   async getHtml() {
-    const data = await getData('http://localhost:3000/profiles');
+    const token = Store.getData('session').token;
+    const data = await getData('http://localhost:3000/profiles', token);
     return data.message;
   }
   // async getHtml() {

@@ -40,8 +40,10 @@ app.use((req, res, next) => {
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 15 minutes -> 1
   max: 15, // limit each IP to 100 requests per windowMs, -> 15
-  message:
-    'Poti face maxim 15 apeluri per minut. Incearca din nou intr-un minut.',
+  message: {
+    message:
+      'Poti face maxim 15 accesari per minut. Incearca din nou intr-un minut.',
+  },
 });
 app.use(limiter);
 
@@ -52,10 +54,10 @@ app.use(limiter);
 app.use(express.json());
 
 // request logging
-// app.use((req, res, next) => {
-//   console.log(`Request with method ${req.method} made at ${req.url}`);
-//   next();
-// });
+app.use((req, res, next) => {
+  console.log(`Request with method ${req.method} made at ${req.url}`);
+  next();
+});
 
 // routes
 app.use('/auth', authRtoutes);

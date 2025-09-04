@@ -39,3 +39,7 @@ When building page and removing items from the page, tailwindcss does not recomp
 
 > must serve only index page, and redirect all path requests "/\*" to index page
 > in the meantime must allow all api calls to proxy pass them
+
+## cors
+
+> in dev mode cors is enabled in index.mjs, and request numbers are doubled (cors get/post requests are preceded by OPTIONS requests)

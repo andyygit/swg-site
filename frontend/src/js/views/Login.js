@@ -1,4 +1,3 @@
-import { postData } from '../helpers/fetch.js';
 import AbstractView from './AbstractView.js';
 import MyLoginForm from '../components/Loginform.js';
 

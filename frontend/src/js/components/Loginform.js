@@ -14,37 +14,38 @@ class MyLoginForm extends HTMLElement {
       password: password,
     });
     Store.addData('session', response);
-    console.log(Store.getData('session'));
+    this.children[0].style.display = 'none';
+    this.innerHTML += `<p>Succes! Poti continua catre <a href="/" class="underline" data-link="">Prima pagina</a></p>`;
   }
   connectedCallback() {
     this.innerHTML = `
-		<div id="login-form" class="mx-4 p-8 bg-black/50 rounded-2xl shadow-xl/30">
+		<div id="login-form" class="mx-4 p-8 rounded-2xl inset-ring inset-ring-gray-200 shadow-xl/30">
     <div class="grid gap-5">
-      <h1 class="text-[40px] font-bold text-white">Login</h1>
-      <p class="text-white/70">Access to 300+ hours of courses, tutorials and livestreams</p>
-      <form action="" class="space-y-5 text-white">
+      <h1 class="text-[40px] font-bold text-gray-600">Log in</h1>
+      <p class="text-black/70">Access to 300+ hours of courses, tutorials and livestreams</p>
+      <form action="" class="space-y-5">
         <div class="relative">
-          <div class="absolute top-1 left-1 bg-white/25 rounded-full p-2 flex items-center justify-center text-blue-300">
+          <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-blue-300">
             <i class="fa-solid fa-user"></i>
           </div>
-          <input type="text" id="username" placeholder="Utilizator" class="w-full sm:w-80 bg-gradient-to-b from-[#636a9666] to-[#b6bad640] py-2 px-3 pl-12 rounded-full ring-1 ring-white/20 focus:bg-black/50 focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in">
+          <input id="username" name="username" type="text" placeholder="Utilizator" class="w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in">
         </div>
         <div class="relative">
-          <div class="absolute top-1 left-1 bg-white/25 rounded-full p-2 flex items-center justify-center text-blue-300">
+          <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-blue-300">
             <i class="fa-solid fa-lock"></i>
           </div>
-          <input type="password" id="password" placeholder="Parola" class="w-full sm:w-80 bg-gradient-to-b from-[#636a9666] to-[#b6bad640] py-2 px-3 pl-12 rounded-full ring-1 ring-white/20 focus:bg-black/50 focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in">
+          <input id="password" name="password" type="password" placeholder="Parola" class="w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in">
         </div>
-        <button class="w-full sm:w-80 font-semibold rounded-full bg-gradient-to-r from-blue-400 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
+        <button class="w-full sm:w-80 font-semibold text-gray-600 rounded-full bg-gradient-to-r from-blue-400 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
           Autentificare
         </button>
       </form>
-      <div class="grid grid-cols-3 items-center text-white/20">
+      <div class="grid grid-cols-3 items-center text-gray-400">
         <hr>
         <p class="text-sm text-center">SAU</p>
         <hr>
       </div>
-      <div class="text-white/70 space-y-1 text-sm">
+      <div class="text-gray-600 space-y-1 text-sm">
         <p>
           Ai uitat parola?
           <a href="#" class="text-[#2FB8FF] font-semibold cursor-pointer">Seteaza o noua parola</a>

@@ -1,6 +1,11 @@
-const getData = async (url) => {
+const getData = async (url, authToken = null) => {
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, {
+      headers: {
+        Authorization: authToken ? `Bearer ${authToken}` : '',
+      },
+      method: 'GET',
+    });
     if (!res.ok) {
       const err = await res.json();
       return {
@@ -15,10 +20,11 @@ const getData = async (url) => {
   }
 };
 
-const postData = async (url, body) => {
+const postData = async (url, body, authToken = null) => {
   try {
     const res = await fetch(url, {
       headers: {
+        Authorization: authToken ? `Bearer ${authToken}` : '',
         'Content-Type': 'application/json',
       },
       method: 'POST',
