@@ -14,14 +14,18 @@ export const register = async (req, res) => {
    * @todo create profile path with ghost picture for m / f / couple
    */
   try {
-    const { username, password, role } = req.body;
-    await fs.mkdir(path.join(publicPath, `profiles/${username}/public`), { recursive: true });
+    const { username, password, password2, email, city, gender } = req.body;
+    await fs.mkdir(path.join(publicPath, `profiles/${username}/public`), {
+      recursive: true,
+    });
     await fs.mkdir(path.join(publicPath, `profiles/${username}/private`));
     res.status(201).json({
-      message: `User inregistrat cu username ${username} si rol ${role}`,
+      message: `User inregistrat cu username ${username} si ${password} si ${password2} si ${email} si ${city} si ${gender}`,
     });
   } catch (err) {
-    res.status(500).json({ message: `Eroare la inregistrarea userului - ${err}` });
+    res
+      .status(500)
+      .json({ message: `Eroare la inregistrarea userului - ${err}` });
   }
 };
 

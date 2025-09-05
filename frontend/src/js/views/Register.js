@@ -1,5 +1,5 @@
 import AbstractView from './AbstractView.js';
-import MyLoginForm from '../components/Loginform.js';
+import MyRegisterForm from '../components/Registerform.js';
 
 export default class extends AbstractView {
   constructor() {
@@ -7,9 +7,9 @@ export default class extends AbstractView {
     this.setTitle('SWGSite | Creează un cont nou');
   }
   async getHtml() {
-    if (!customElements.get('my-loginform')) {
-      customElements.define('my-loginform', MyLoginForm);
+    if (!customElements.get('my-registerform')) {
+      customElements.define('my-registerform', MyRegisterForm);
     }
-    return '<my-loginform>';
+    return '<my-registerform>';
   }
 }

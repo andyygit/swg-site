@@ -14,8 +14,8 @@ class MyLoginForm extends HTMLElement {
       password: password,
     });
     Store.addData('session', response);
-    this.children[0].style.display = 'none';
     this.innerHTML += `<p>Succes! Poti continua catre <a href="/" class="underline" data-link>Prima pagina</a></p>`;
+    this.children[0].style.display = 'none';
   }
   connectedCallback() {
     this.innerHTML = `
