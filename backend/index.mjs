@@ -2,7 +2,9 @@ import dotenv from 'dotenv';
 import { publicPath, envPath } from './config/paths.mjs';
 import express from 'express';
 import rateLimit from 'express-rate-limit';
+import homeRoute from './routes/homeRoute.mjs';
 import authRtoutes from './routes/authRoutes.mjs';
+import apiRoutes from './routes/apiRoutes.mjs';
 import myProfileRoutes from './routes/myProfileRoutes.mjs';
 import profilesRoutes from './routes/profilesRoutes.mjs';
 
@@ -45,7 +47,7 @@ const limiter = rateLimit({
       'Poti face maxim 15 accesari per minut. Incearca din nou intr-un minut.',
   },
 });
-app.use(limiter);
+// app.use(limiter);
 
 // serve index
 // app.use(express.static(publicPath));
@@ -60,9 +62,11 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use('/auth', authRtoutes);
-app.use('/my-profile', myProfileRoutes);
-app.use('/profiles', profilesRoutes);
+app.use('/', homeRoute);
+app.use('/auth', limiter, authRtoutes);
+app.use('/my-profile', limiter, myProfileRoutes);
+app.use('/profiles', limiter, profilesRoutes);
+app.use('/api', apiRoutes);
 
 /**
  * @todo

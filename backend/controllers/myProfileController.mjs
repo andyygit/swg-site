@@ -11,8 +11,12 @@ const storage = multer.diskStorage({
     cb(null, `public/profiles/${username}/private`);
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    cb(null, `${uniqueSuffix}.jpg`);
+    cb(
+      null,
+      file.originalname.startsWith('mini')
+        ? `${Date.now()}-${Math.round(Math.random() * 1e9)}-mini.jpg` // must create a mapping in the database????? howw??????
+        : `${Date.now()}-${Math.round(Math.random() * 1e9)}.jpg`
+    );
   },
 });
 
@@ -25,11 +29,11 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// "file" name must be the name from key name in the client request payload
+// "files" name must be the name from key name in the client request payload
 let upload = multer({
-  storage: storage,
-  fileFilter: fileFilter,
-}).single('file');
+  storage,
+  fileFilter,
+}).array('files', 2);
 
 upload = util.promisify(upload);
 
@@ -50,7 +54,9 @@ export const uploadImage = async (req, res, next) => {
 
 export const deleteImage = async (req, res) => {
   try {
-    await fs.rm(path.join(publicPath, `profiles/cinevaundeva-1754458626844-36642806.jpg`));
+    await fs.rm(
+      path.join(publicPath, `profiles/cinevaundeva-1754458626844-36642806.jpg`)
+    );
     res.status(200).json({ message: 'Fisierul a fost sters.' });
   } catch (err) {
     res.status(500).json({ message: 'Eroare la stergerea fisierului.' });
@@ -64,10 +70,6 @@ export const deleteImage = async (req, res) => {
 
 export const viewMyProfile = (req, res) => {
   res.status(200).json({ message: 'My profile page' });
-};
-
-export const editMyProfile = (req, res) => {
-  res.status(200).json({ message: 'Edit my profile page' });
 };
 
 export const updateMyProfile = (req, res) => {

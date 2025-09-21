@@ -15,7 +15,7 @@ const uploadUrl = 'http://localhost:3000/my-profile/upload';
  *
  * @param {String} url
  */
-const urlToFile = (url) => {
+const urlToFile = (url, isSecond = false) => {
   let arr = url.split(',');
   let regex = /:(.*?);/;
   let mimeType = arr[0].match(regex)[1];
@@ -27,16 +27,43 @@ const urlToFile = (url) => {
     // convert to Utf16 and push to array
     dataArr[n] = decoded64Data.charCodeAt(n);
   }
-  let file = new File([dataArr], 'imageFilename.jpg', {
-    type: mimeType,
-  });
+  let file = new File(
+    [dataArr],
+    isSecond ? 'mini-imageFilename.jpg' : 'imageFilename.jpg',
+    {
+      type: mimeType,
+    }
+  );
   // console.log(file);
   return file;
 };
 
-const uploadImage = async (file) => {
+// const uploadImage = async (file) => {
+//   let payload = new FormData();
+//   payload.append('file', file);
+//   try {
+//     const res = await fetch(uploadUrl, {
+//       method: 'POST',
+//       body: payload,
+//     });
+//     if (!res.ok) {
+//       throw new Error(`API response error code: ${res.status}`);
+//     }
+//     const json = await res.json();
+//     console.log(json);
+//     form.reset();
+//     form.outerHTML = `<div>Imaginea a fost incarcata</div>`;
+//   } catch (err) {
+//     console.error(err.message);
+//     form.reset();
+//     form.outerHTML = `<div>${err.message}</div>`;
+//   }
+// };
+
+const uploadImages = async (file1, file2) => {
   let payload = new FormData();
-  payload.append('file', file);
+  payload.append('files', file1);
+  payload.append('files', file2);
   try {
     const res = await fetch(uploadUrl, {
       method: 'POST',
@@ -46,7 +73,7 @@ const uploadImage = async (file) => {
       throw new Error(`API response error code: ${res.status}`);
     }
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
     form.reset();
     form.outerHTML = `<div>Imaginea a fost incarcata</div>`;
   } catch (err) {
@@ -90,13 +117,29 @@ upload.addEventListener('change', (event) => {
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       let newImageUrl = ctx.canvas.toDataURL('image/jpeg', 90);
 
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const newratio = canvas.width / canvas.height;
+      canvas.height = 100;
+      canvas.width = 100 * newratio;
+      if (canvas.width > 200) canvas.width = 200;
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      let newImageUrl2 = ctx.canvas.toDataURL('image/jpeg', 60);
+
       // display on the dom
       // let newImg = new Image();
       // newImg.src = newImageUrl;
-      // output.appendChild(newImg);
+      // document.getElementById('output').appendChild(newImg);
+      // let newImg2 = new Image();
+      // newImg2.src = newImageUrl2;
+      // document.getElementById('output').appendChild(newImg2);
 
-      let imageFile = urlToFile(newImageUrl);
-      await uploadImage(imageFile);
+      let imageFile1 = urlToFile(newImageUrl);
+      let imageFile2 = urlToFile(newImageUrl2, true);
+      await uploadImages(imageFile1, imageFile2);
+      console.log(imageFile1);
+      console.log(imageFile2);
+      // let imageFile = urlToFile(newImageUrl);
+      // await uploadImage(imageFile);
       // console.log(imageFile);
     };
   };

@@ -1,7 +1,7 @@
 import express from 'express';
+import { verifyToken } from '../middleware/authMiddleware.mjs';
 import {
   viewMyProfile,
-  editMyProfile,
   updateMyProfile,
   uploadImage,
   deleteImage,
@@ -9,10 +9,9 @@ import {
 
 const router = express.Router();
 
-router.get('/', viewMyProfile);
-router.get('/edit', editMyProfile); // uploadImage, deleteImage frontend
-router.put('/edit', updateMyProfile);
+router.get('/', verifyToken, viewMyProfile);
+router.post('/edit', verifyToken, updateMyProfile); // uploadImage, deleteImage frontend
 router.post('/upload', uploadImage);
-router.delete('/delete/:filename', deleteImage);
+router.post('/delete/:filename', verifyToken, deleteImage);
 
 export default router;

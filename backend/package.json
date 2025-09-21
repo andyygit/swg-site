@@ -5,6 +5,7 @@
   "main": "index.mjs",
   "scripts": {
     "dev": "node --watch --trace-warnings index.mjs",
+    "migrate": "node ./config/db/migrate.mjs",
     "prod": "node index.mjs"
   },
   "keywords": [],
@@ -17,6 +18,7 @@
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.1",
     "jsonwebtoken": "^9.0.2",
-    "multer": "^2.0.2"
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.5"
   }
 }

@@ -15,71 +15,65 @@
 <body class="flex items-center h-screen justify-center">
   <div id="register-form" class="mx-4 p-8 rounded-2xl inset-ring inset-ring-gray-200 shadow-xl/30">
     <div class="grid gap-5">
-      <h1 class="text-[40px] font-bold tracking-tighter text-gray-600">Cont nou</h1>
-      <p class="text-black/70">Prin utilizarea funcționalității de creare cont nou și autentificare, ești de acord cu <a
-          href="/tos" class="font-semibold tracking-tight text-black border-b border-sky-500 hover:border-b-2"
-          data-link>termenii și
+      <h1 class="text-4xl font-bold tracking-tighter text-gray-600">Cont nou</h1>
+      <p class="text-black/70 text-sm font-light italic">Prin utilizarea funcționalității de creare cont nou și
+        autentificare, ești de acord cu <a href="/tos"
+          class="font-semibold tracking-tight text-black border-b border-sky-500 hover:border-b-2" data-link>termenii și
           condițiile
           swgsite.ro</a>.</p>
-      <form action="" class="space-y-5">
+      <form action="" class="space-y-2 text-sm">
         <div class="relative">
-          <div
-            class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-blue-300">
+          <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-red-300">
             <i class="fa-solid fa-user"></i>
           </div>
           <input id="username" name="username" type="text" placeholder="Nume utilizator"
             class="w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in" />
         </div>
         <div class="relative">
-          <div
-            class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-blue-300">
+          <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-red-300">
             <i class="fa-solid fa-lock"></i>
           </div>
           <input id="password" name="password" type="password" placeholder="Parola"
             class="w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in" />
         </div>
         <div class="relative">
-          <div
-            class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-blue-300">
+          <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-red-300">
             <i class="fa-solid fa-lock"></i>
           </div>
           <input id="password2" name="password2" type="password" placeholder="Confirmare parola"
             class="w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in" />
         </div>
         <div class="relative">
-          <div
-            class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-blue-300">
+          <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-red-300">
             <i class="fa-solid fa-envelope"></i>
           </div>
           <input id="email" name="email" type="email" placeholder="Adresa e-mail"
             class="w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in" />
         </div>
         <div class="relative">
-          <div
-            class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-blue-300">
+          <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-red-300">
             <i class="fa-solid fa-city"></i>
           </div>
           <input id="city" name="city" type="text" placeholder="Localitate, județ"
             class="w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in" />
         </div>
         <div class="relative">
-          <div
-            class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-blue-300">
+          <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-red-300">
             <i class="fa-solid fa-people-arrows"></i>
           </div>
           <div
             class=" flex w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in">
             <select name="gender" id="gender" class="appearance-none focus:outline-none w-full">
               <option disabled selected value="">Tip profil</option>
-              <option value="c">Cuplu</option>
-              <option value="m">Bărbat</option>
-              <option value="f">Femeie</option>
+              <option value="1">Cuplu</option>
+              <option value="2">Bărbat</option>
+              <option value="3">Femeie</option>
             </select>
             <div class="text-gray-500"><i class="fa-solid fa-caret-down"></i></div>
           </div>
         </div>
         <button
-          class="w-full sm:w-80 font-semibold text-gray-600 rounded-full bg-gradient-to-r from-blue-400 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
+          class="w-full sm:w-80 font-semibold text-gray-900 rounded-full bg-gradient-to-r from-violet-400 to-red-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
           Creează cont
         </button>
       </form>
@@ -88,7 +82,7 @@
         <p class="text-sm text-center">SAU</p>
         <hr />
       </div>
-      <div class="text-gray-600 space-y-1 text-sm">
+      <div class="space-y-1 text-sm font-extralight">
         <p>
           Ai deja cont?
           <a href="/login" class="text-[#2FB8FF] font-semibold cursor-pointer" data-link>Conectează-te</a>

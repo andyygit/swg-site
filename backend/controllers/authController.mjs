@@ -48,9 +48,13 @@ export const login = async (req, res) => {
   // }
   jwt.sign(
     {
+      id: 544886,
       username: username,
       role: 'admin',
       ispremium: true,
+      joinDate: Date.now(),
+      leaveDate: Date.now(),
+      hasMessages: true,
     },
     process.env.ACCESS_TOKEN_SALT,
     { expiresIn: '30s' },

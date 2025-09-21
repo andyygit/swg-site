@@ -8,9 +8,10 @@ export default class extends AbstractView {
     this.setTitle('SWGSite | Pagina principală');
   }
   async getHtml() {
-    const token = Store.getData('session').token;
-    const data = await getData('http://localhost:3000/profiles', token);
-    return data.message;
+    const token = Store.getData('session');
+    // const data = await getData('http://localhost:3000/', token);
+    // return data.message;
+    return 'Lala Land';
   }
   // async getHtml() {
   //   const data = await getData('https://jsonplaceholder.typicode.com/users');
