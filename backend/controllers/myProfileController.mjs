@@ -14,8 +14,8 @@ const storage = multer.diskStorage({
     cb(
       null,
       file.originalname.startsWith('mini')
-        ? `${Date.now()}-${Math.round(Math.random() * 1e9)}-mini.jpg` // must create a mapping in the database????? howw??????
-        : `${Date.now()}-${Math.round(Math.random() * 1e9)}.jpg`
+        ? `${req.imgNamePrefix}-mini.jpg` // must create a mapping in the database????? howw??????
+        : `${req.imgNamePrefix}.jpg`
     );
   },
 });

@@ -19,7 +19,8 @@ discard local changes on file (restore): git restore src/css/dist.css
 
 #### env vars
 
-gen salt: node: require('crypto').randomBytes(32).toString('hex')
+token, refresh token gen salt: node: require('crypto').randomBytes(32).toString('hex')  
+used bcrypt for password salt: node: let bcrypt = require('bcryptjs'), await bcrypt.genSalt(10)
 
 > PORT  
 > ACCESS_TOKEN_SALT  

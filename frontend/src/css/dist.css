@@ -432,6 +432,9 @@
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1161,34 +1164,14 @@
       display: none;
     }
   }
-  .max-sm\:flex-col {
-    @media (width < 576px) {
-      flex-direction: column;
-    }
-  }
-  .max-sm\:object-none {
-    @media (width < 576px) {
-      object-fit: none;
-    }
-  }
   .sm\:hidden {
     @media (width >= 576px) {
       display: none;
     }
   }
-  .sm\:h-full {
-    @media (width >= 576px) {
-      height: 100%;
-    }
-  }
   .sm\:w-80 {
     @media (width >= 576px) {
       width: calc(var(--spacing) * 80);
-    }
-  }
-  .sm\:w-full {
-    @media (width >= 576px) {
-      width: 100%;
     }
   }
   .sm\:max-w-2xl {
@@ -1201,9 +1184,9 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
-  .sm\:flex-col {
+  .sm\:grid-cols-4 {
     @media (width >= 576px) {
-      flex-direction: column;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
   .sm\:flex-row {
@@ -1247,6 +1230,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .md\:grid-cols-6 {
+    @media (width >= 768px) {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+  }
   .lg\:col-start-3 {
     @media (width >= 1024px) {
       grid-column-start: 3;
@@ -1255,6 +1243,11 @@
   .lg\:hidden {
     @media (width >= 1024px) {
       display: none;
+    }
+  }
+  .lg\:grid-cols-8 {
+    @media (width >= 1024px) {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
     }
   }
   .lg\:grid-cols-\[auto_2\.5rem_minmax\(0\,1fr\)_2\.5rem\] {

@@ -136,8 +136,8 @@ upload.addEventListener('change', (event) => {
       let imageFile1 = urlToFile(newImageUrl);
       let imageFile2 = urlToFile(newImageUrl2, true);
       await uploadImages(imageFile1, imageFile2);
-      console.log(imageFile1);
-      console.log(imageFile2);
+      // console.log(imageFile1);
+      // console.log(imageFile2);
       // let imageFile = urlToFile(newImageUrl);
       // await uploadImage(imageFile);
       // console.log(imageFile);
