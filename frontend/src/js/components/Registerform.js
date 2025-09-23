@@ -140,7 +140,7 @@ class MyRegisterForm extends HTMLElement {
               </div>
             </div>
             <button
-              class="w-full sm:w-80 font-semibold text-gray-900 rounded-full bg-gradient-to-r from-violet-400 to-red-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
+              class="w-full sm:w-80 font-semibold text-gray-900 rounded-full bg-gradient-to-r from-violet-200 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
               Creează cont
             </button>
           </form>
