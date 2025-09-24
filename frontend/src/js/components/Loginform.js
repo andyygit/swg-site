@@ -19,9 +19,9 @@ class MyLoginForm extends HTMLElement {
   }
   connectedCallback() {
     this.innerHTML = `
-      <div id="login-form" class="mx-4 p-8 rounded-2xl inset-ring inset-ring-gray-200 shadow-xl/30">
+      <div id="login-form" class="mx-4 mt-24 md:max-w-1/2 md:mx-auto p-8 rounded-2xl inset-ring inset-ring-gray-200 shadow-xl/30">
         <div class="grid gap-5">
-          <h1 class="text-4xl font-bold tracking-tighter text-gray-600">Intră în cont</h1>
+          <h1 class="text-2xl font-bold tracking-tighter text-gray-600">Conectare</h1>
           <p class="text-black/70 text-sm font-light italic">Acces la comunitatea online a cuplurilor swinger din România și
             nu numai...</p>
           <form action="" class="space-y-2 text-sm">

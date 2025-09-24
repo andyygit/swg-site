@@ -79,9 +79,9 @@ class MyRegisterForm extends HTMLElement {
   }
   connectedCallback() {
     this.innerHTML = `
-      <div id="register-form" class="mx-4 p-8 rounded-2xl inset-ring inset-ring-gray-200 shadow-xl/30">
+      <div id="register-form" class="mx-4 mt-24 md:max-w-1/2 md:mx-auto p-8 rounded-2xl inset-ring inset-ring-gray-200 shadow-xl/30">
         <div class="grid gap-5">
-          <h1 class="text-4xl font-bold tracking-tighter text-gray-600">Cont nou</h1>
+          <h1 class="text-2xl font-bold tracking-tighter text-gray-600">Cont nou</h1>
           <p class="text-black/70 text-sm font-light italic">Prin utilizarea funcționalității de creare cont nou și
             autentificare, ești de acord cu <a href="/tos"
               class="font-semibold tracking-tight text-black border-b border-sky-500 hover:border-b-2" data-link>termenii și

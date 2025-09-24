@@ -58,3 +58,8 @@ When building page and removing items from the page, tailwindcss does not recomp
       <a href="/favorites" class="underline" data-link>Favoriti</a>
       <a href="/help" class="underline" data-link>Ajutor</a>
       <a href="/premium" class="underline" data-link>Premium</a>
+
+## server test
+
+> ab - Apache HTTP server benchmarking tool  
+> see video for commands

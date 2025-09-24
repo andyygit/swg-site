@@ -8,7 +8,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-200: oklch(88.5% 0.062 18.334);
     --color-red-300: oklch(80.8% 0.114 19.571);
     --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
@@ -25,7 +24,6 @@
     --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-indigo-800: oklch(39.8% 0.195 277.366);
     --color-violet-200: oklch(89.4% 0.057 293.283);
-    --color-violet-400: oklch(70.2% 0.183 293.541);
     --color-slate-200: oklch(92.9% 0.013 255.508);
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
@@ -50,8 +48,8 @@
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-extralight: 200;
     --font-weight-light: 300;
     --font-weight-medium: 500;
@@ -323,6 +321,9 @@
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-24 {
+    margin-top: calc(var(--spacing) * 24);
   }
   .-ml-1\.5 {
     margin-left: calc(var(--spacing) * -1.5);
@@ -784,9 +785,9 @@
   .font-sans {
     font-family: var(--font-sans);
   }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
   .text-lg {
     font-size: var(--text-lg);
@@ -1193,9 +1194,19 @@
       padding-inline: calc(var(--spacing) * 6);
     }
   }
+  .md\:mx-auto {
+    @media (width >= 768px) {
+      margin-inline: auto;
+    }
+  }
   .md\:hidden {
     @media (width >= 768px) {
       display: none;
+    }
+  }
+  .md\:max-w-1\/2 {
+    @media (width >= 768px) {
+      max-width: calc(1/2 * 100%);
     }
   }
   .md\:max-w-5xl {
@@ -1226,11 +1237,6 @@
   .lg\:pt-14\.25 {
     @media (width >= 1024px) {
       padding-top: calc(var(--spacing) * 14.25);
-    }
-  }
-  .xl\:grid-cols-\[auto_2\.5rem_minmax\(0\,1fr\)_2\.5rem\] {
-    @media (width >= 1280px) {
-      grid-template-columns: auto 2.5rem minmax(0,1fr) 2.5rem;
     }
   }
   .dark\:text-white {

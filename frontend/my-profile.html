@@ -20,36 +20,36 @@
   <!-- <div class="flex flex-wrap p-4 gap-2 sm:max-w-2xl">
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/1.jpeg" alt=""></div>
+        src="src/img/temp/mini/1.jpg" alt=""></div>
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/2.jpeg" alt=""></div>
+        src="src/img/temp/mini/2.jpg" alt=""></div>
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/3.jpeg" alt=""></div>
+        src="src/img/temp/mini/3.jpg" alt=""></div>
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/4.jpeg" alt=""></div>
+        src="src/img/temp/mini/4.jpg" alt=""></div>
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/5.jpeg" alt=""></div>
+        src="src/img/temp/mini/5.jpg" alt=""></div>
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/6.jpeg" alt=""></div>
+        src="src/img/temp/mini/6.jpg" alt=""></div>
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/7.jpeg" alt=""></div>
+        src="src/img/temp/mini/7.jpg" alt=""></div>
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/8.jpeg" alt=""></div>
+        src="src/img/temp/mini/8.jpg" alt=""></div>
     <div class="overflow-hidden rounded-sm"><img
         class="w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110"
-        src="src/img/temp/mini/9.jpeg" alt=""></div>
+        src="src/img/temp/mini/9.jpg" alt=""></div>
   </div> -->
 
-  <!-- <script>
+  <script>
     const lightboxSource = document.createElement('div')
-    lightboxSource.className = 'grid grid-cols-3 gap gap-2 justify-center items-center'
+    lightboxSource.className = 'flex flex-wrap p-4 gap-2 sm:max-w-2xl'
     document.body.appendChild(lightboxSource)
 
     const lightbox = document.createElement('div')
@@ -57,27 +57,22 @@
     lightbox.className = 'fixed z-1000 top-0 w-full h-full p-4 bg-black/50 hidden'
     document.body.appendChild(lightbox)
 
-    let tempImages = ['1757251909397-787074257',
-      '1757251913602-387906954',
-      '1757251920758-569308189',
-      '1757251924141-465094390',
-      '1757251940032-508893818',
-      '1757251944209-213530761',
-      '1757251930541-182007048',
-      '1757251934699-422561670',
-      '1757251948546-868030479'];
+    let tempImages = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
     tempImages.forEach(image => {
+      const wrap = document.createElement('div')
+      wrap.className = 'overflow-hidden rounded-sm'
+      lightboxSource.appendChild(wrap)
       const img = document.createElement('img')
-      img.src = `src/img/temp/${image}.jpg`
-      img.className = 'w-40 cursor-pointer object-cover hover:scale-102 transition-transform duration-100 ease-in-out'
-      lightboxSource.appendChild(img)
+      img.src = `src/img/temp/mini/${image}.jpg`
+      img.className = 'w-full h-full cursor-pointer object-cover transition-transform duration-500 ease-out hover:scale-110'
+      wrap.appendChild(img)
       img.addEventListener('click', e => {
         if (lightbox.classList.contains('hidden')) {
           lightbox.classList.add('flex', 'justify-center', 'items-center', 'gap-2')
           lightbox.classList.remove('hidden')
         }
         const image = document.createElement('img')
-        image.src = e.target.src
+        image.src = e.target.src.replace('mini/', '')
         lightbox.appendChild(image)
       })
     });
@@ -86,8 +81,8 @@
       lightbox.classList.remove('flex', 'justify-center', 'items-center', 'gap-2')
       lightbox.classList.add('hidden')
     })
-  </script> -->
-  <div class="flex flex-col gap-10">
+  </script>
+  <!-- <div class="flex flex-col gap-10">
     <div>my-profile</div>
     <form action="" id="my-form">
       <label for="uploadimage"
@@ -101,7 +96,7 @@
     </form>
     <a href="index.html" class="underline">home page</a>
     <div id="output"></div>
-  </div>
+  </div> -->
   <!-- <script>
       const template = document.getElementById('my-template');
       document.addEventListener('DOMContentLoaded', () => {
