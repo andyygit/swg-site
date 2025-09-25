@@ -1,4 +1,5 @@
 import { postData } from '../helpers/fetch.js';
+import { Validate } from '../helpers/Validate.js';
 
 class MyRegisterForm extends HTMLElement {
   constructor() {
@@ -60,22 +61,31 @@ class MyRegisterForm extends HTMLElement {
   }
   async #handleClick(event) {
     event.preventDefault();
-    let username = this.querySelector('#username').value;
-    let password = this.querySelector('#password').value;
-    let password2 = this.querySelector('#password2').value;
-    let email = this.querySelector('#email').value;
-    let city = this.querySelector('#city').dataset.id;
-    let gender = this.querySelector('#gender').value;
-    const response = await postData('http://localhost:3000/auth/register', {
-      username: username,
-      password: password,
-      email: email,
-      city: city,
-      gender: gender,
-    });
-    console.log(response);
-    this.innerHTML += `<p>${response.message}</p>`;
-    this.children[0].style.display = 'none';
+    let validation = new Validate(this);
+    validation.check();
+    if (validation.passed) {
+      let username = this.querySelector('#username').value;
+      let password = this.querySelector('#password').value;
+      let password2 = this.querySelector('#password2').value;
+      let email = this.querySelector('#email').value;
+      let city = this.querySelector('#city').dataset.id;
+      let gender = this.querySelector('#gender').value;
+      const response = await postData('http://localhost:3000/auth/register', {
+        username: username,
+        password: password,
+        email: email,
+        city: city,
+        gender: gender,
+      });
+      console.log(response);
+      this.innerHTML += `<p>${response.message}</p>`;
+      this.children[0].style.display = 'none';
+    } else {
+      for (let error of validation.errors) {
+        this.innerHTML += `<p>${error}</p>`;
+        this.children[0].style.display = 'none';
+      }
+    }
   }
   connectedCallback() {
     this.innerHTML = `
@@ -139,8 +149,7 @@ class MyRegisterForm extends HTMLElement {
                 <div class="text-gray-500"><i class="fa-solid fa-caret-down"></i></div>
               </div>
             </div>
-            <button
-              class="w-full sm:w-80 font-semibold text-gray-900 rounded-full bg-gradient-to-r from-violet-200 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
+            <button type="submit" class="w-full sm:w-80 font-semibold text-gray-900 rounded-full bg-gradient-to-r from-violet-200 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
               Creează cont
             </button>
           </form>

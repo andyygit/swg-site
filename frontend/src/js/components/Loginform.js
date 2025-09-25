@@ -39,8 +39,7 @@ class MyLoginForm extends HTMLElement {
               <input id="password" name="password" type="password" placeholder="Parola"
                 class="w-full sm:w-80 bg-gradient-to-t from-gray-200 to-gray-50 py-2 px-3 pl-12 rounded-full focus:outline-none focus:ring focus:ring-[#2FB8FF] focus:drop-shadow-lg transition-shadow duration-300 ease-in">
             </div>
-            <button
-              class="w-full sm:w-80 font-semibold text-gray-900 rounded-full bg-gradient-to-r from-violet-200 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
+            <button type="submit" class="w-full sm:w-80 font-semibold text-gray-900 rounded-full bg-gradient-to-r from-violet-200 to-cyan-200 py-2 transition-transform duration-300 ease-out hover:scale-102">
               Autentificare
             </button>
           </form>
