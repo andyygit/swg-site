@@ -1,5 +1,6 @@
 import { postData } from '../helpers/fetch.js';
 import { Validate } from '../helpers/Validate.js';
+import { Showerrors } from '../helpers/Output.js';
 
 class MyRegisterForm extends HTMLElement {
   constructor() {
@@ -81,10 +82,8 @@ class MyRegisterForm extends HTMLElement {
       this.innerHTML += `<p>${response.message}</p>`;
       this.children[0].style.display = 'none';
     } else {
-      for (let error of validation.errors) {
-        this.innerHTML += `<p>${error}</p>`;
-        this.children[0].style.display = 'none';
-      }
+      let errors = new Showerrors(validation.errors);
+      errors.render();
     }
   }
   connectedCallback() {
