@@ -46,7 +46,3 @@ addEventListener('DOMContentLoaded', () => {
 // let split = token.split('.')[1];
 
 // console.log(atob(split));
-
-// // let userdata = JSON.parse(atob(split));
-
-// // console.log(new Date(userdata.creationDate).toLocaleDateString('ro-RO'));

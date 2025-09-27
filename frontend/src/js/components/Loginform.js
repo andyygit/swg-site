@@ -1,4 +1,6 @@
 import { postData } from '../helpers/fetch.js';
+import { Validate } from '../helpers/Validate.js';
+import { Showerrors } from '../helpers/Output.js';
 import Store from '../helpers/Store.js';
 
 class MyLoginForm extends HTMLElement {
@@ -7,15 +9,22 @@ class MyLoginForm extends HTMLElement {
   }
   async #handleClick(event) {
     event.preventDefault();
-    let username = this.querySelector('#username').value;
-    let password = this.querySelector('#password').value;
-    const response = await postData('http://localhost:3000/auth/login', {
-      username: username,
-      password: password,
-    });
-    Store.addData('session', response.token);
-    this.innerHTML += `<p>Succes! Poti continua catre <a href="/" class="underline" data-link>Prima pagina</a></p>`;
-    this.children[0].style.display = 'none';
+    let validation = new Validate(this);
+    validation.checkLoginForm();
+    if (validation.passed) {
+      let username = this.querySelector('#username').value;
+      let password = this.querySelector('#password').value;
+      const response = await postData('http://localhost:3000/auth/login', {
+        username: username,
+        password: password,
+      });
+      Store.addData('session', response.token);
+      this.innerHTML += `<p>Succes! Poti continua catre <a href="/" class="underline" data-link>Prima pagina</a></p>`;
+      this.children[0].style.display = 'none';
+    } else {
+      let errors = new Showerrors(validation.errors);
+      errors.render();
+    }
   }
   connectedCallback() {
     this.innerHTML = `

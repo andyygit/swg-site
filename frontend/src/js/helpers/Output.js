@@ -11,7 +11,7 @@ class Showerrors {
       let alert = document.createElement('p');
       alert.className = 'text-sm text-red-600';
       alert.textContent = error.message;
-      error.field.insertAdjacentElement('afterend', alert);
+      error.field.parentElement.insertAdjacentElement('afterend', alert);
     });
   }
 }

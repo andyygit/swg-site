@@ -8,7 +8,7 @@ export class Validate {
     this.errors = [];
     this.password = '';
   }
-  check() {
+  checkRegisterForm() {
     for (let element of this.form.elements) {
       switch (element) {
         case username:
@@ -60,6 +60,35 @@ export class Validate {
         case gender:
           if (element.value == '') {
             this.addError('Campul Tip profil este obligatoriu!', element);
+          }
+          break;
+      }
+    }
+    if (this.errors.length == 0) {
+      this.passed = true;
+    }
+  }
+  checkLoginForm() {
+    for (let element of this.form.elements) {
+      switch (element) {
+        case username:
+          if (element.value == '') {
+            this.addError('Campul Nume utilizator este obligatoriu!', element);
+          } else if (element.value.match(/\s/)) {
+            this.addError(
+              'Campul Nume utilizator nu trebuie sa contina spatii!',
+              element
+            );
+          }
+          break;
+        case password:
+          if (element.value == '') {
+            this.addError('Campul Parola este obligatoriu!', element);
+          } else if (element.value.match(/\s/)) {
+            this.addError(
+              'Campul Parola nu trebuie sa contina spatii!',
+              element
+            );
           }
           break;
       }

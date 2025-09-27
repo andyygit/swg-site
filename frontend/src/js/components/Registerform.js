@@ -63,7 +63,7 @@ class MyRegisterForm extends HTMLElement {
   async #handleClick(event) {
     event.preventDefault();
     let validation = new Validate(this);
-    validation.check();
+    validation.checkRegisterForm();
     if (validation.passed) {
       let username = this.querySelector('#username').value;
       let password = this.querySelector('#password').value;
