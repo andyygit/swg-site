@@ -23,8 +23,13 @@ export const executePreparedQuery = async (query, values) => {
     const [rows] = await connection.execute(query, values);
     return rows;
   } catch (error) {
-    console.log(error);
-    return error;
+    if (error instanceof Error) {
+      console.log(error);
+      return {
+        error: error.errno,
+        details: error.sqlMessage,
+      };
+    }
   } finally {
     // console.log('finally executed!!!! dada!!!!!!!');
     if (connection) connection.end();

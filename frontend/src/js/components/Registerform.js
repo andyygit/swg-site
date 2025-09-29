@@ -91,11 +91,11 @@ class MyRegisterForm extends HTMLElement {
       <div id="register-form" class="mx-4 mt-24 md:max-w-1/2 md:mx-auto p-8 rounded-2xl inset-ring inset-ring-gray-200 shadow-xl/30">
         <div class="grid gap-5">
           <h1 class="text-2xl font-bold tracking-tighter text-gray-600">Cont nou</h1>
-          <p class="text-black/70 text-sm font-light italic">Prin utilizarea funcționalității de creare cont nou și
+          <p class="text-black/70 text-sm font-light italic"><i class="fa-solid fa-circle-exclamation text-red-700"></i> Prin utilizarea funcționalității de creare cont nou și
             autentificare, ești de acord cu <a href="/tos"
               class="font-semibold tracking-tight text-black border-b border-sky-500 hover:border-b-2" data-link>termenii și
               condițiile
-              swgsite.ro</a>.</p>
+              happyswinging.ro</a>.</p>
           <form action="" class="space-y-2 text-sm">
             <div class="relative">
               <div class="absolute top-1 left-1 bg-white/50 rounded-full p-2 flex items-center justify-center text-red-300">

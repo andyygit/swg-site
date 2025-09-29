@@ -4,7 +4,7 @@ import MyLoginForm from '../components/Loginform.js';
 export default class extends AbstractView {
   constructor() {
     super();
-    this.setTitle('SWGSite | Intră in cont');
+    this.setTitle('HappySwinging | Intră in cont');
   }
   async getHtml() {
     if (!customElements.get('my-loginform')) {

@@ -8,16 +8,18 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-100: oklch(93.6% 0.032 17.717);
     --color-red-300: oklch(80.8% 0.114 19.571);
     --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
-    --color-orange-400: oklch(75% 0.183 55.934);
-    --color-orange-600: oklch(64.6% 0.222 41.116);
-    --color-yellow-400: oklch(85.2% 0.199 91.936);
+    --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-yellow-100: oklch(97.3% 0.071 103.193);
     --color-yellow-600: oklch(68.1% 0.162 75.834);
-    --color-green-400: oklch(79.2% 0.209 151.711);
+    --color-yellow-700: oklch(55.4% 0.135 66.442);
+    --color-green-100: oklch(96.2% 0.044 156.743);
     --color-green-600: oklch(62.7% 0.194 149.214);
+    --color-green-700: oklch(52.7% 0.154 150.069);
     --color-cyan-200: oklch(91.7% 0.08 205.041);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-blue-50: oklch(97% 0.014 254.604);
@@ -36,10 +38,10 @@
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
-    --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-900: oklch(21% 0.034 264.665);
     --color-gray-950: oklch(13% 0.028 261.692);
     --color-neutral-600: oklch(43.9% 0 0);
+    --color-neutral-700: oklch(37.1% 0 0);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -70,6 +72,7 @@
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -325,6 +328,9 @@
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
   .mt-24 {
     margin-top: calc(var(--spacing) * 24);
   }
@@ -365,11 +371,17 @@
     width: calc(var(--spacing) * 8);
     height: calc(var(--spacing) * 8);
   }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
   .h-14 {
     height: calc(var(--spacing) * 14);
+  }
+  .h-28 {
+    height: calc(var(--spacing) * 28);
   }
   .h-full {
     height: 100%;
@@ -392,6 +404,12 @@
   .min-h-dvh {
     min-height: 100dvh;
   }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
+  .w-2\/3 {
+    width: calc(2/3 * 100%);
+  }
   .w-full {
     width: 100%;
   }
@@ -412,6 +430,9 @@
   }
   .animate-ping {
     animation: var(--animate-ping);
+  }
+  .animate-pulse {
+    animation: var(--animate-pulse);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -571,8 +592,8 @@
       border-color: color-mix(in oklab, var(--color-gray-950) 8%, transparent);
     }
   }
-  .border-green-400 {
-    border-color: var(--color-green-400);
+  .border-green-600 {
+    border-color: var(--color-green-600);
   }
   .border-indigo-300\/60 {
     border-color: color-mix(in srgb, oklch(78.5% 0.115 274.713) 60%, transparent);
@@ -580,14 +601,14 @@
       border-color: color-mix(in oklab, var(--color-indigo-300) 60%, transparent);
     }
   }
-  .border-red-400 {
-    border-color: var(--color-red-400);
+  .border-red-600 {
+    border-color: var(--color-red-600);
   }
   .border-sky-500 {
     border-color: var(--color-sky-500);
   }
-  .border-yellow-400 {
-    border-color: var(--color-yellow-400);
+  .border-yellow-600 {
+    border-color: var(--color-yellow-600);
   }
   .border-x-\(--pattern-fg\) {
     border-inline-color: var(--pattern-fg);
@@ -610,6 +631,9 @@
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
+  }
   .bg-gray-500 {
     background-color: var(--color-gray-500);
   }
@@ -625,6 +649,9 @@
       background-color: color-mix(in oklab, var(--color-gray-950) 5%, transparent);
     }
   }
+  .bg-green-100 {
+    background-color: var(--color-green-100);
+  }
   .bg-indigo-400\/10 {
     background-color: color-mix(in srgb, oklch(67.3% 0.182 276.935) 10%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -633,6 +660,9 @@
   }
   .bg-neutral-600 {
     background-color: var(--color-neutral-600);
+  }
+  .bg-red-100 {
+    background-color: var(--color-red-100);
   }
   .bg-red-400 {
     background-color: var(--color-red-400);
@@ -657,6 +687,9 @@
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-white) 50%, transparent);
     }
+  }
+  .bg-yellow-100 {
+    background-color: var(--color-yellow-100);
   }
   .bg-gradient-to-r {
     --tw-gradient-position: to right in oklab;
@@ -724,9 +757,6 @@
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
-  }
-  .p-3 {
-    padding: calc(var(--spacing) * 3);
   }
   .p-4 {
     padding: calc(var(--spacing) * 4);
@@ -874,17 +904,14 @@
   .text-gray-600 {
     color: var(--color-gray-600);
   }
-  .text-gray-700 {
-    color: var(--color-gray-700);
-  }
   .text-gray-900 {
     color: var(--color-gray-900);
   }
   .text-gray-950 {
     color: var(--color-gray-950);
   }
-  .text-green-600 {
-    color: var(--color-green-600);
+  .text-green-700 {
+    color: var(--color-green-700);
   }
   .text-indigo-500 {
     color: var(--color-indigo-500);
@@ -904,6 +931,9 @@
   .text-red-600 {
     color: var(--color-red-600);
   }
+  .text-red-700 {
+    color: var(--color-red-700);
+  }
   .text-white {
     color: var(--color-white);
   }
@@ -913,8 +943,8 @@
       color: color-mix(in oklab, var(--color-white) 85%, transparent);
     }
   }
-  .text-yellow-600 {
-    color: var(--color-yellow-600);
+  .text-yellow-700 {
+    color: var(--color-yellow-700);
   }
   .italic {
     font-style: italic;
@@ -1243,6 +1273,11 @@
       padding-top: calc(var(--spacing) * 14.25);
     }
   }
+  .dark\:bg-neutral-700 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-neutral-700);
+    }
+  }
   .dark\:text-white {
     @media (prefers-color-scheme: dark) {
       color: var(--color-white);
@@ -1479,6 +1514,11 @@
   75%, 100% {
     transform: scale(2);
     opacity: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
   }
 }
 @layer properties {

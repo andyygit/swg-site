@@ -1,3 +1,4 @@
+import tosView from '../views/Tos.js';
 import homeView from '../views/Home.js';
 import loginView from '../views/Login.js';
 import registerView from '../views/Register.js';
@@ -20,6 +21,10 @@ const router = async () => {
     {
       path: '/my-profile',
       view: myProfileView,
+    },
+    {
+      path: '/tos',
+      view: tosView,
     },
   ];
   const potentialMatches = routes.map((route) => {

@@ -1,3 +1,4 @@
+import { executePreparedQuery } from '../config/db/connect.mjs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { publicPath } from '../config/paths.mjs';
@@ -13,15 +14,33 @@ export const register = async (req, res) => {
    * @todo create user
    * @todo create profile path with ghost picture for m / f / couple
    */
+  const { username, password, email, city, gender } = req.body;
+  let rows = await executePreparedQuery(
+    'SELECT `id`, `username` FROM `users` WHERE `username` = ?',
+    [username]
+  );
+  if (rows.length) {
+    return res.status(200).json({ message: 'Userul exista deja!' });
+  }
+  console.log('dupa usercheck?');
+  rows = await executePreparedQuery(
+    'SELECT `id`, `email` FROM `users` WHERE `email` = ?',
+    [email]
+  );
+  if (rows.length) {
+    return res
+      .status(200)
+      .json({ message: 'Adresa de mail es deja folosita!' });
+  }
+  console.log('dupa emailcheck?');
   try {
-    const { username, password, password2, email, city, gender } = req.body;
-    await fs.mkdir(path.join(publicPath, `profiles/${username}/public`), {
-      recursive: true,
-    });
-    await fs.mkdir(path.join(publicPath, `profiles/${username}/private`));
-    res.status(201).json({
-      message: `User inregistrat cu username ${username} si ${password} si ${password2} si ${email} si ${city} si ${gender}`,
-    });
+    // await fs.mkdir(path.join(publicPath, `profiles/${username}/public`), {
+    //   recursive: true,
+    // });
+    // await fs.mkdir(path.join(publicPath, `profiles/${username}/private`));
+    // res.status(201).json({
+    //   message: `User inregistrat cu username ${username} si ${password} si ${password2} si ${email} si ${city} si ${gender}`,
+    // });
   } catch (err) {
     res
       .status(500)
