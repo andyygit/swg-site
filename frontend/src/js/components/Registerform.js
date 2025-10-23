@@ -36,26 +36,33 @@ class MyRegisterForm extends HTMLElement {
           mySearchItems[1] = rightItem.replace(pattern2, '');
         }
       }
-      const response = await postData('http://localhost:3000/api/getlocation', {
-        keyword1: mySearchItems[0],
-        keyword2: mySearchItems.length > 1 ? mySearchItems[1] : '',
-      });
-      if (keywordOut.childElementCount != 0)
-        keywordOut.firstElementChild.remove();
-      let output = document.createElement('ul');
-      response.message.forEach((element) => {
-        let line = document.createElement('li');
-        line.className = 'cursor-pointer px-4 py-1 hover:bg-gray-100';
-        line.setAttribute('data-id', element.id);
-        line.setAttribute('data-city', element.city);
-        line.setAttribute('data-county', element.county);
-        line.appendChild(
-          document.createTextNode(`${element.city} - jud. ${element.county}`)
+      try {
+        const response = await postData(
+          'http://localhost:3000/api/getlocation',
+          {
+            keyword1: mySearchItems[0],
+            keyword2: mySearchItems.length > 1 ? mySearchItems[1] : '',
+          }
         );
-        line.addEventListener('click', this.#activate.bind(this));
-        output.appendChild(line);
-      });
-      keywordOut.appendChild(output);
+        if (keywordOut.childElementCount != 0)
+          keywordOut.firstElementChild.remove();
+        let output = document.createElement('ul');
+        response.message.forEach((element) => {
+          let line = document.createElement('li');
+          line.className = 'cursor-pointer px-4 py-1 hover:bg-gray-100';
+          line.setAttribute('data-id', element.id);
+          line.setAttribute('data-city', element.city);
+          line.setAttribute('data-county', element.county);
+          line.appendChild(
+            document.createTextNode(`${element.city} - jud. ${element.county}`)
+          );
+          line.addEventListener('click', this.#activate.bind(this));
+          output.appendChild(line);
+        });
+        keywordOut.appendChild(output);
+      } catch (error) {
+        alert('Error: conexiune locatii indisponibila!');
+      }
     } else if (keywordOut.childElementCount != 0) {
       keywordOut.firstElementChild.remove();
     }
