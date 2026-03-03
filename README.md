@@ -9,7 +9,7 @@ git commit -m "Initial commit"
 add & commit one liner: git commit -am 'added stuff'  
 git remote add origin https://github.com/andyygit/swg-site.git  
 git branch -M main  
-git push origin main  
+git push -u origin main  
 subsequend pushes: git push  
 git clone https://github.com/andyygit/swg-site.git .  
 fetch changes from remote branch (online): git remote update -> git status -> git pull  
