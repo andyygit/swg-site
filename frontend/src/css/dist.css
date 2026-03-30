@@ -1023,6 +1023,12 @@
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
   }
+  .clip-image {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+    &:hover {
+      clip-path: none;
+    }
+  }
   .\[--pattern-fg\:var\(--color-gray-950\)\]\/5 {
     --pattern-fg: color-mix(in srgb, oklch(13% 0.028 261.692) 5%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -1317,13 +1323,8 @@
   a, button {
     cursor: pointer;
   }
-  .clip-image {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-    &:hover {
-      clip-path: none;
-    }
-  }
 }
+@layer components;
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;

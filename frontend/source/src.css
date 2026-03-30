@@ -18,10 +18,14 @@
   button {
     cursor: pointer;
   }
-  .clip-image {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
-    &:hover {
-      clip-path: none;
-    }
+}
+
+@layer components {
+}
+
+@utility clip-image {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+  &:hover {
+    clip-path: none;
   }
 }
